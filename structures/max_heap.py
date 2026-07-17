@@ -24,12 +24,12 @@ class MaxHeap:
         """
         Fait descendre l'élément à 'index' à sa bonne place pour que
         la propriété de Max-Heap soit respectée.
-        Nathan code ici.
+        Tu codes ici Nathan.
         """
         
         # Tu écris un algorithme qui comparee l'élément
         # avec ses enfants gauche/droit et l'échange si un enfant est plus grand.
-        pass # Enlève cette ligne et écris ton code ici
+        pass # Tu enlèves cette ligne et écris ton code ici.
     
     # -----------------
     # Zone pour Rindra
@@ -44,7 +44,7 @@ class MaxHeap:
         
         # Tu dois faire une boucle en partant du milieu de la liste
         # jusqu'à l'index 0 et appeler heapify() à chaque fois.
-        pass # Enlève cette ligne et code ici.
+        pass # Tu enlèves cette ligne et ton code sera ici.
     
     def heapsort(self, data_list: list) -> list:
         """
