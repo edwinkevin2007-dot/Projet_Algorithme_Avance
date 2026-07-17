@@ -44,7 +44,7 @@ class MaxHeap:
         
         # Tu dois faire une boucle en partant du milieu de la liste
         # jusqu'à l'index 0 et appeler heapify() à chaque fois.
-        pass # Enlève cette ligne et code ici
+        pass # Enlève cette ligne et code ici.
     
     def heapsort(self, data_list: list) -> list:
         """
@@ -58,6 +58,6 @@ class MaxHeap:
         # Puis, c'est ici que tu dois faire une boucle de tri, qui
         # va échanger la racine (le plus grand) avec le dernier élément,
         # réduire la taille du tas virtuel de 1, et ré-entasser (heapify).
-        # Tu codes ici
+        # Tu codes ici.
         
         return self.heap
