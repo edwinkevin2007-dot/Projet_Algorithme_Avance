@@ -44,29 +44,20 @@ class MaxHeap:
     # Zone pour Rindra
     # -----------------
     def build_heap(self, data_list: list):
-        """
-        Prend une liste brute et transforme la en Max-Heap.
-        Rindra, tu codes de ce côté.
-        """
+  
         self.heap = data_list.copy()
         n = len(self.heap)
-        
-        # Tu dois faire une boucle en partant du milieu de la liste
-        # jusqu'à l'index 0 et appeler heapify() à chaque fois.
-        pass # Tu enlèves cette ligne et ton code sera ici.
+
+        for i in range(n // 2 - 1, -1, -1):
+            self.heapify(n, i)
     
     def heapsort(self, data_list: list) -> list:
-        """
-        C'est ici que l'algorithme principal du Tri par Tas passe.
-        Rindra, tu codes aussi de ce côté là.
-        """
-        # D'abord, tu appelles build_heap() pour transformer la liste en tas. Déjà fait là.
+   
         self.build_heap(data_list)
+
         n = len(self.heap)
-        
-        # Puis, c'est ici que tu dois faire une boucle de tri, qui
-        # va échanger la racine (le plus grand) avec le dernier élément,
-        # réduire la taille du tas virtuel de 1, et ré-entasser (heapify).
-        # Tu codes ici.
+        for i in range(n - 1, 0, -1):
+            self.swap(0, i)
+            self.heapify(i, 0)
         
         return self.heap
