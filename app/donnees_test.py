@@ -1,3 +1,9 @@
+# -------------------
+# Zone pour Mendrika
+# -------------------
+
+from structures.max_heap import MaxHeap
+
 # ============================================================
 # 1. CAS NORMAL : liste mélangée (scores dans le désordre total)
 # ============================================================
@@ -47,18 +53,40 @@ liste_triee = [
     {"pseudo": "EchoBlade", "score": 60},
 ]
 
+class Joueur:
+    def __init__(self, pseudo, score):
+        self.pseudo = pseudo
+        self.score = score
+        
+    def __gt__(self, autre):
+        return self.score > autre.score
 
 def afficher_donnees(liste, titre="Classement"):
-    """Affiche proprement une liste de joueurs (dictionnaires pseudo/score)."""
     print(f"\n=== {titre} ===")
     for rang, joueur in enumerate(liste, start=1):
-        print(f"{rang}. {joueur['pseudo']} - {joueur['score']} pts")
+        if isinstance(joueur, Joueur):
+            print(f"{rang}. {joueur.pseudo} - {joueur.score} pts")
+        else:
+            print(f"{rang}. {joueur['pseudo']} - {joueur['score']} pts")
 
+def lancer_simulation(choix_liste: int):
+    if choix_liste == 1:
+        donnees = liste_melangee
+        titre = "Cas normal (Liste mélangée)"
+    elif choix_liste == 2:
+        donnees = liste_inversee
+        titre = "Pire des cas (Liste inversée)"
+    else:
+        donnees = liste_triee
+        titre = "Meilleur des cas (Liste déjà triée)"
+        
+    afficher_donnees(donnees, f"{titre} - AVANT TRI")
+    
+    liste_joueurs = [Joueur(d["pseudo"], d["score"]) for d in donnees]
 
-if __name__ == "__main__":
-    print("########## DONNÉES DE TEST - HEAPSORT (Classement Jeu Vidéo) ##########")
-
-    afficher_donnees(liste_melangee, "Cas normal (liste mélangée) - AVANT TRI")
-    afficher_donnees(liste_inversee, "Pire des cas (liste inversée) - AVANT TRI")
-    afficher_donnees(liste_triee, "Meilleur des cas (liste déjà triée) - AVANT TRI")
-
+    tri_tas = MaxHeap()
+    resultat_tri = tri_tas.heapsort(liste_joueurs)
+    
+    resultat_tri.reverse()
+    
+    afficher_donnees(resultat_tri, "CLASSEMENT OFFICIEL (APRÈS TRI)")
