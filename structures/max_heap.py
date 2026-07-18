@@ -21,10 +21,7 @@ class MaxHeap:
     # Zone pour Nathan
     # ------------------
     def heapify(self, size: int, index: int):
-        """
-        Fait descendre l'élément à 'index' à sa bonne place pour que
-        la propriété de Max-Heap soit respectée.
-        """
+
         largest = index
 
         while True:
