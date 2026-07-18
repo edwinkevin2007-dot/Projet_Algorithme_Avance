@@ -24,12 +24,27 @@ class MaxHeap:
         """
         Fait descendre l'élément à 'index' à sa bonne place pour que
         la propriété de Max-Heap soit respectée.
-        Tu codes ici Nathan.
         """
-        
-        # Tu écris un algorithme qui comparee l'élément
-        # avec ses enfants gauche/droit et l'échange si un enfant est plus grand.
-        pass # Tu enlèves cette ligne et écris ton code ici.
+        largest = index
+
+        while True:
+            left = self.get_left_child_index(index)
+            right = self.get_right_child_index(index)
+
+            # Choisir le plus grand parmi index, gauche, droite (si enfants existent)
+            largest = index
+            if left < size and self.heap[left] > self.heap[largest]:
+                largest = left
+            if right < size and self.heap[right] > self.heap[largest]:
+                largest = right
+
+            # Si index est déjà le plus grand, on s'arrête
+            if largest == index:
+                break
+
+            # Sinon on swap et on continue à descendre
+            self.swap(index, largest)
+            index = largest
     
     # -----------------
     # Zone pour Rindra
