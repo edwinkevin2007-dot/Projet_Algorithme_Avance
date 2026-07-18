@@ -28,18 +28,15 @@ class MaxHeap:
             left = self.get_left_child_index(index)
             right = self.get_right_child_index(index)
 
-            # Choisir le plus grand parmi index, gauche, droite (si enfants existent)
             largest = index
             if left < size and self.heap[left] > self.heap[largest]:
                 largest = left
             if right < size and self.heap[right] > self.heap[largest]:
                 largest = right
 
-            # Si index est déjà le plus grand, on s'arrête
             if largest == index:
                 break
 
-            # Sinon on swap et on continue à descendre
             self.swap(index, largest)
             index = largest
     
