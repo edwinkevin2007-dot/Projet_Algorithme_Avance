@@ -1,3 +1,6 @@
+# Ce fichier peut être exécuter sur Visual Studio Code en cliquant sur le bouton "Play"
+# pour plus de démonstration sur le Tri par Tas (Heapsort).
+
 from structures.max_heap import MaxHeap
 from app.donnees_test import lancer_simulation
 
